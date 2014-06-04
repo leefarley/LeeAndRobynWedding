@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="app">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Lee And Robyn's Wedding</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="css/base.css" rel="stylesheet" />
+    <link href="css/sections.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="header">
+    </div>
+    <div id="menu">
+        <div>
+            <ul>
+                <li><a href="#header">Home</a></li>
+                <li><a href="#wedding">Wedding</a></li>
+                <li><a href="#rsvp">RSVP</a></li>
+                <li><a href="#registry">Registry</a></li>
+                <li><a href="#programme">Programme</a></li>
+                <li><a href="#out-of-towners">Out of Towners</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="timer">
+        <h3>We'll be married in</h3>
+        <div id="time">
+            <span id="days"><b>230</b></span>
+            <span>Days</span>
+            <span class="spacer">&#3664;</span>
+            <span id="hours"><b>23</b></span>
+            <span>Hours</span>
+            <span class="spacer">&#3664;</span>
+            <span id="minutes"><b>23</b></span>
+            <span>Minutes</span>
+            <span class="spacer">&#3664;</span>
+            <span id="seconds"><b>23</b></span>
+            <span>Seconds</span>
+        </div>
+    </div>
+    <div class="section">
+        <span>
+            <a id="wedding" class="anchor"></a>
+        </span>
+
+        <h1>Wedding</h1>
+        <div class="content">
+            <div>Insert Content Here</div>
+        </div>
+    </div>
+    <div class="section-spacer"></div>
+    <div id="rsvp-section" class="section-alt" ng-controller="reservationCtrl">
+
+        <span>
+            <a id="rsvp" class="anchor"></a>
+        </span>
+
+        <h1>RSVP</h1>
+        <div class="content" ng-hide="working">
+            <div id="code-form">
+                <label for="code">Enter Code</label>
+                <input type="text" id="code" ng-model="rsvpCode">
+                <button ng-click="submitRsvpCode()">Submit</button>
+            </div>
+            <table>
+                <tr ng-repeat="person in people">
+                    <td>{{ person.firstName }} {{ person.lastName }}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="content" ng-show="working">
+            <div ng-show="working" class="loading"></div>
+        </div>
+    </div>
+    <div class="section-spacer"></div>
+    <div class="section">
+        <span>
+            <a id="registry" class="anchor"></a>
+        </span>
+        <h1>Registry</h1>
+        <div class="content">
+            <div>
+                Insert Content Here
+            </div>
+        </div>
+    </div>
+    <div class="section-spacer"></div>
+    <div class="section-alt">
+
+        <span>
+            <a id="programme" class="anchor"></a>
+        </span>
+        <h1>Programme</h1>
+        <div class="content">
+            <div>Insert Content Here</div>
+        </div>
+    </div>
+    <div class="section-spacer"></div>
+    <div class="section">
+        <span>
+            <a id="out-of-towners" class="anchor"></a>
+        </span>
+        <h1>Out of Towners</h1>
+        <div class="content">
+            <div>Insert Content Here</div>
+        </div>
+    </div>
+    <div id="footer"></div>
+    <script src="scripts/lib/jquery-2.1.1.js"></script>
+    <script src="scripts/lib/underscore.js"></script>
+    <script src="scripts/lib/angular.js"></script>
+    <script src="scripts/lib/angular-resource.js"></script>
+    <script src="scripts/src/app.js"></script>
+    <script>
+        var menu = document.querySelector('#menu');
+        var origOffsetY = menu.offsetTop;
+        function scroll() {
+            var currOffsetY = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
+            if (currOffsetY >= origOffsetY) {
+                menu.className = 'sticky';
+            } else {
+                menu.className = '';
+            }
+        }
+        window.onscroll = scroll;
+    </script>
+</body>
+</html>
+
