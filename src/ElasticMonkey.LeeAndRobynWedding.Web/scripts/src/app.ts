@@ -6,18 +6,30 @@ var app : ng.IModule = angular.module("app", ["ngResource"]);
 
 app.controller("reservationCtrl", ($scope, $http) => {
     $scope.submitRsvpCode = () => {
-        var data = { "code": $scope.rsvpCode };
-        $scope.working = true;
-        $http.post("/api/rsvp/", data)
-            .success((data)=> {
-                $scope.people = data.people;
+        var request = { "code": $scope.rsvpCode };
+        $scope.isWorking = true;
+        $http.post("/api/rsvp/", request)
+            .success((invitation : IInvitation)=> {
+                $scope.people = invitation.people;
+                $scope.isWorking = false;
+                $scope.isFormLoaded = true;
             })
             .error(()=> {
                 // this callback will be called asynchronously
                 // when the response is available
             });
     };
-
     $scope.people = [];
-    $scope.working = false;
+    $scope.isWorking = false;
+    $scope.isFormLoaded = false;
 });
+
+interface IInvitation {
+    people : IPerson[]
+}
+
+interface IPerson {
+    firstName : string;
+    lastName : string;
+    isAttending : boolean;
+}

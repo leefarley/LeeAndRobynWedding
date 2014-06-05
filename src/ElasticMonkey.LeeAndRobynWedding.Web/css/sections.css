@@ -1,12 +1,7 @@
 ﻿
 
-#rsvp-section .loading {
-  padding-top: 130px;
-  background-repeat: no-repeat;
-  margin: 0 auto;
-  width: 72px;
-  height: 72px;
-  background: url('/images/loading.gif') center center; }
+#rsvp-section .content .loading {
+  padding-top: 130px; }
 
 
 
@@ -14,5 +9,11 @@
 
 #code-form label {
   display: block; }
+
+.loading {
+  margin: 0 auto;
+  width: 72px;
+  height: 72px;
+  background: url('/images/loading.gif') center center no-repeat; }
 
 /*# sourceMappingURL=sections.css.map */

@@ -59,20 +59,25 @@
         </span>
 
         <h1>RSVP</h1>
-        <div class="content" ng-hide="working">
-            <div id="code-form">
+        <div class="content" ng-hide="isWorking">
+            <div id="code-form" ng-hide="isFormLoaded">
                 <label for="code">Enter Code</label>
                 <input type="text" id="code" ng-model="rsvpCode">
                 <button ng-click="submitRsvpCode()">Submit</button>
             </div>
-            <table>
-                <tr ng-repeat="person in people">
-                    <td>{{ person.firstName }} {{ person.lastName }}</td>
-                </tr>
-            </table>
+            <div class="attendees" ng-show="isFormLoaded">
+                <ul ng-repeat="person in people">
+                    <li>
+                        <label>
+                            <input type="checkbox" ng-model="person.isAttending" />
+                            <span>{{ person.firstName }}&nbsp;{{ person.lastName }}</span>
+                        </label>
+                    </li>
+                </ul>
+            </div>
         </div>
         <div class="content" ng-show="working">
-            <div ng-show="working" class="loading"></div>
+            <div ng-show="isWorking" class="loading"></div>
         </div>
     </div>
     <div class="section-spacer"></div>

@@ -172,3 +172,10 @@ UpgradeLog*.htm
 
 # Microsoft Fakes
 FakesAssemblies/
+
+#using sass
+*.css
+
+# Typescript
+script/src/*.js
+script/src/*.js.map
