@@ -11,7 +11,7 @@
     <link href="css/base.css" rel="stylesheet" />
     <link href="css/sections.css" rel="stylesheet" />
 </head>
-<body>
+<body ng-controller="homeCtrl">
     <div id="header">
     </div>
     <div id="menu">
@@ -27,19 +27,22 @@
         </div>
     </div>
     <div id="timer">
-        <h3>We'll be married in</h3>
-        <div id="time">
-            <span id="days"><b>230</b></span>
-            <span>Days</span>
-            <span class="spacer">&#3664;</span>
-            <span id="hours"><b>23</b></span>
-            <span>Hours</span>
-            <span class="spacer">&#3664;</span>
-            <span id="minutes"><b>23</b></span>
-            <span>Minutes</span>
-            <span class="spacer">&#3664;</span>
-            <span id="seconds"><b>23</b></span>
-            <span>Seconds</span>
+        <div ng-switch on="areMarried()">
+            <h3 ng-switch-when="false">We'll be married in</h3>
+            <h3 ng-switch-when="true">Married for</h3>
+            <div id="time">
+                    <span id="days"></span>
+                    <span>Days</span>
+                    <span class="spacer">&#3664;</span>
+                    <span id="hours">></span>
+                    <span>Hours</span>
+                    <span class="spacer">&#3664;</span>
+                    <span id="minutes"></span>
+                    <span>Minutes</span>
+                    <span class="spacer">&#3664;</span>
+                    <span id="seconds"></span>
+                    <span>Seconds</span>
+            </div>
         </div>
     </div>
     <div class="section">
@@ -53,7 +56,7 @@
         </div>
     </div>
     <div class="section-spacer"></div>
-    <div id="rsvp-section" class="section-alt" ng-controller="reservationCtrl">
+    <div id="rsvp-section" class="section-alt">
 
         <span>
             <a id="rsvp" class="anchor"></a>
@@ -61,13 +64,15 @@
 
         <h1>RSVP</h1>
         <div class="content" style="height: 213px;">
-                <div ng-hide="isWorking">
-                    <form id="code-form" ng-hide="isFormLoaded">
-                        <label for="code">Enter Code</label>
-                        <input type="text" id="code" ng-model="rsvpCode" ng-minlength="5" ng-maxlength="5" maxlength="5">
-                        <button ng-click="submitRsvpCode()">Submit</button>
-                    </form>
-                    <div class="attendees" ng-show="isFormLoaded">
+            <div ng-hide="isWorking">
+                <form id="code-form" ng-hide="isFormLoaded">
+                    <label for="code">Enter Code</label>
+                    <input type="text" id="code" ng-model="rsvpCode" ng-minlength="5" ng-maxlength="5" maxlength="5">
+                    <button ng-click="submitRsvpCode()">Submit</button>
+                </form>
+                <div id="attendees" ng-show="isFormLoaded">
+                    <span class="pane-1">
+                        <label>Attendees</label>
                         <ul ng-repeat="person in people">
                             <li>
                                 <label>
@@ -76,13 +81,17 @@
                                 </label>
                             </li>
                         </ul>
-                    </div>
-                </div>
-                <div ng-show="isWorking">
-                    <div class="loading"></div>
+                    </span>
+                    <span id="pane-2">
+                        <label>Special Dietry Requirements</label>
+                    </span>
                 </div>
             </div>
+            <div ng-show="isWorking">
+                <div class="loading"></div>
+            </div>
         </div>
+    </div>
     <div class="section-spacer"></div>
     <div class="section">
         <span>
@@ -121,6 +130,7 @@
     <script src="scripts/lib/underscore.js"></script>
     <script src="scripts/lib/angular.js"></script>
     <script src="scripts/lib/angular-resource.js"></script>
+    <script src="scripts/lib/angular.timer.js"></script>
     <script src="scripts/src/app.js"></script>
     <script>
         var menu = document.querySelector('#menu');
@@ -134,6 +144,17 @@
             }
         }
         window.onscroll = scroll;
+
+        var timer = setInterval(updateTimer, 1000);
+        function updateTimer() {
+            var theDate = new Date("Feburary 7, 2015 15:00:00");
+            var currentTime = new Date();
+            var seconds = (theDate.getTime() - currentTime.getTime());
+            document.querySelector('#seconds').innerText = Math.floor((seconds / 1000) % 60);
+            document.querySelector('#minutes').innerText = Math.floor(((seconds / (60000)) % 60));
+            document.querySelector('#hours').innerText = Math.floor(((seconds / (3600000)) % 24));
+            document.querySelector('#days').innerText = Math.floor(((seconds / (3600000)) / 24));
+        };
     </script>
 </body>
 </html>

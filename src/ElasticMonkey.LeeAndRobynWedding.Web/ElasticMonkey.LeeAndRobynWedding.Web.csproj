@@ -106,6 +106,7 @@
     <Content Include="scripts\lib\angular-touch.min.js" />
     <Content Include="scripts\lib\angular.js" />
     <Content Include="scripts\lib\angular.min.js" />
+    <Content Include="scripts\lib\angular.timer.js" />
     <Content Include="scripts\lib\errors.json" />
     <Content Include="scripts\lib\angular-touch.min.js.map" />
     <Content Include="scripts\lib\angular-sanitize.min.js.map" />
@@ -116,9 +117,6 @@
     <Content Include="scripts\lib\angular-animate.min.js.map" />
     <Content Include="scripts\lib\angular.min.js.map" />
     <Content Include="css\sections.scss" />
-    <Content Include="css\sections.css.map">
-      <DependentUpon>sections.css</DependentUpon>
-    </Content>
     <Content Include="fonts\GothamNarrow-Black.otf" />
     <Content Include="fonts\GothamNarrow-BlackItalic.otf" />
     <Content Include="fonts\GothamNarrow-Bold.otf" />
@@ -134,6 +132,12 @@
     <Content Include="fonts\Mercury Display Bold _1_.ttf" />
     <Content Include="fonts\Mercury Display Italic.ttf" />
     <Content Include="fonts\Mercury Display Semi Italic _1_.ttf" />
+    <Content Include="css\base.css.map">
+      <DependentUpon>base.css</DependentUpon>
+    </Content>
+    <Content Include="css\sections.css.map">
+      <DependentUpon>sections.css</DependentUpon>
+    </Content>
     <None Include="scripts\lib\jquery-2.1.1.intellisense.js">
       <DependentUpon>jquery-2.1.1.js</DependentUpon>
     </None>
@@ -400,9 +404,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\base.scss" />
-    <Content Include="css\base.css.map">
-      <DependentUpon>base.css</DependentUpon>
-    </Content>
     <Content Include="scripts\lib\jquery-2.1.1.min.map">
       <DependentUpon>jquery-2.1.1.js</DependentUpon>
     </Content>
@@ -417,6 +418,7 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="scripts\src\app.ts" />
+    <TypeScriptCompile Include="scripts\src\directives.ts" />
     <TypeScriptCompile Include="scripts\typings\angularjs\angular-animate.d.ts" />
     <TypeScriptCompile Include="scripts\typings\angularjs\angular-cookies.d.ts" />
     <TypeScriptCompile Include="scripts\typings\angularjs\angular-mocks.d.ts" />

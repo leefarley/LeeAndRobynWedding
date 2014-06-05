@@ -27,4 +27,17 @@
                 font-size: 20px;
             }
         }
+        #attendees{
+            ul{
+                list-style-type: none;
+                padding-left: 0;
+                li{
+                    list-style-type: none;
+                    input[type=checkbox]{
+                        vertical-align: bottom;
+                        margin-bottom: 2px;
+                    }
+                }
+            }
+        }
 }

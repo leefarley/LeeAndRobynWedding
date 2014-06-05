@@ -22,7 +22,6 @@
             li {
                 display: inline-block;
                 margin: 6px;
-
                 a {
                     text-decoration: none;
                     text-transform: uppercase;
@@ -123,7 +122,7 @@
 
 .section-spacer {
     height: 72px;
-    background: url('/images/spacer-wallpaper.png') repeat;
+    background: url('data:image/png;base64,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') /*/images/spacer-wallpaper.png*/ repeat;
 }
 
 #footer {

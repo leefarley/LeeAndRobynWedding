@@ -4,12 +4,12 @@
 var app : ng.IModule = angular.module("app", ["ngResource"]);
 
 
-app.controller("reservationCtrl", ($scope, $http) => {
-    $scope.submitRsvpCode = () => {
+app.controller("homeCtrl", ($scope, $http) => {
+    $scope.submitRsvpCode = ()=> {
         var request = { "code": $scope.rsvpCode };
         $scope.isWorking = true;
         $http.post("/api/rsvp/", request)
-            .success((invitation : IInvitation)=> {
+            .success((invitation: IInvitation)=> {
                 $scope.people = invitation.people;
                 $scope.isWorking = false;
                 $scope.isFormLoaded = true;
@@ -22,6 +22,14 @@ app.controller("reservationCtrl", ($scope, $http) => {
     $scope.people = [];
     $scope.isWorking = false;
     $scope.isFormLoaded = false;
+    $scope.areMarried = ()=> {
+        var theDate = new Date("Feburary 7, 2015 15:00:00");
+        var currentTime = new Date();
+        if (theDate < currentTime) {
+            return true;
+        }
+        return false;
+    };
 });
 
 interface IInvitation {
