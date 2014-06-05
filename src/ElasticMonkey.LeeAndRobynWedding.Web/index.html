@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Lee And Robyn's Wedding</title>
     <meta name="description" content="">
+    <link href='http://fonts.googleapis.com/css?family=Droid+Serif|Open+Sans:400,300' rel='stylesheet' type='text/css'>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="css/base.css" rel="stylesheet" />
@@ -59,27 +60,29 @@
         </span>
 
         <h1>RSVP</h1>
-        <div class="content" ng-hide="isWorking">
-            <div id="code-form" ng-hide="isFormLoaded">
-                <label for="code">Enter Code</label>
-                <input type="text" id="code" ng-model="rsvpCode">
-                <button ng-click="submitRsvpCode()">Submit</button>
-            </div>
-            <div class="attendees" ng-show="isFormLoaded">
-                <ul ng-repeat="person in people">
-                    <li>
-                        <label>
-                            <input type="checkbox" ng-model="person.isAttending" />
-                            <span>{{ person.firstName }}&nbsp;{{ person.lastName }}</span>
-                        </label>
-                    </li>
-                </ul>
+        <div class="content" style="height: 213px;">
+                <div ng-hide="isWorking">
+                    <form id="code-form" ng-hide="isFormLoaded">
+                        <label for="code">Enter Code</label>
+                        <input type="text" id="code" ng-model="rsvpCode" ng-minlength="5" ng-maxlength="5" maxlength="5">
+                        <button ng-click="submitRsvpCode()">Submit</button>
+                    </form>
+                    <div class="attendees" ng-show="isFormLoaded">
+                        <ul ng-repeat="person in people">
+                            <li>
+                                <label>
+                                    <input type="checkbox" ng-model="person.isAttending" />
+                                    <span>{{ person.firstName }}&nbsp;{{ person.lastName }}</span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div ng-show="isWorking">
+                    <div class="loading"></div>
+                </div>
             </div>
         </div>
-        <div class="content" ng-show="working">
-            <div ng-show="isWorking" class="loading"></div>
-        </div>
-    </div>
     <div class="section-spacer"></div>
     <div class="section">
         <span>

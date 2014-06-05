@@ -175,6 +175,7 @@ FakesAssemblies/
 
 #using sass
 *.css
+*.css.map
 
 # Typescript
 script/src/*.js

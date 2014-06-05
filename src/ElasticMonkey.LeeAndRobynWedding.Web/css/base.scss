@@ -1,155 +1,157 @@
-﻿@font-face {
-    font-family: Gotham-Narrow;
-    src: url('/fonts/GothamNarrow-Medium.otf') format('opentype');
-}
-@font-face {
-	font-family: Gotham-Narrow;
-	src: url('/fonts/GothamNarrow-Bold.otf') format('opentype');
-    font-weight: bold;
-}
-@font-face {
-	font-family: Gotham-Narrow-Light;
-	src: url('/fonts/GothamNarrow-Light.otf') format('opentype');
-}
-@font-face {
-	font-family: Gotham-Narrow-Book;
-	src: url('/fonts/GothamNarrow-Book.otf') format('opentype');
-}
-@font-face {
-	font-family: Mercury-Display;
-	src: url('/fonts/Mercury Display Bold Italic.ttf');
-    font-style: italic;
-    font-weight: bold;
-}
-
-body {
+﻿body {
     margin: 0;
     color: #FFFDF8;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
 }
-    #header{
-        height: 400px;
-    }
-    #menu{
-        background-color: #FFFDF8;
-        height: 32px;
-        div{
-            width: 100%;
-            ul{
-                text-align: center;
-                margin: 0 auto;
-                li{
-                    display: inline-block;
-                    margin: 6px;
-                    a{
-                        text-decoration : none;
-                        text-transform: uppercase;
-                        font-family: Gotham-Narrow;
-                        font-size: 17px;
-                        color: #5B0A55;
-                    }
+
+#header {
+    height: 400px;
+}
+
+#menu {
+    background-color: #FFFDF8;
+    height: 32px;
+
+    div {
+        width: 100%;
+        ul {
+            text-align: center;
+            margin: 0 auto;
+
+            li {
+                display: inline-block;
+                margin: 6px;
+
+                a {
+                    text-decoration: none;
+                    text-transform: uppercase;
+                    font-family: 'Open Sans', sans-serif;
+                    font-size: 17px;
+                    color: #5B0A55;
                 }
             }
         }
     }
-    #menu.sticky{
-        position: fixed;
-        background-color: #FFFDF8;
-        top: 0;
-        width: 100%;
-        border-bottom: 1px solid #a9a9a9;
-        z-index: 900;
-    }
-    #timer{
-        color: #FFFDF8;
-        background: url('/images/timer_img.jpg') no-repeat fixed center;
-        height: 180px;
-        text-align: center;
-        h3{
-            font-family: Mercury-Display;
-            font-style: italic;
-            font-weight: bold;
-            padding-top: 32px;
-            font-size: 21px;
-            margin-top: 0;
-        }
-        span{
-            font-family: Gotham-Narrow-Light;
-            font-size: 32px;
-        }
-        span.time{
-            font-family: Gotham-Narrow;
-        }
-        span.spacer{
-            font-size: 18px;
-            font-family: Gotham-Narrow-Book;
-        }
-    }
-    .section, .section-alt{
-        position: relative;
-        span{
-            a.anchor{ 
-            position:absolute;
-            top:-32px;
-            visibility: hidden;
-            }
-        }
-        min-height: 440px;
-        h1{
-           font-family: Gotham-Narrow-Light;
-           font-size: 32px;
-           text-transform: uppercase;
-           border-bottom: 1px dotted #D92C27;
-           text-align: center;
-           width: 700px;
-           margin: auto;
-           padding: 25px 0 18px 0;
-           margin-bottom: 25px;
-        }
-        .content{
-            margin: 0 auto;
-            width: 700px;
+}
 
+#menu.sticky {
+    position: fixed;
+    background-color: #FFFDF8;
+    top: 0;
+    width: 100%;
+    border-bottom: 1px solid #a9a9a9;
+    z-index: 900;
+}
+
+#timer {
+    color: #FFFDF8;
+    background: url('/images/timer_img.jpg') no-repeat fixed center;
+    height: 180px;
+    text-align: center;
+
+    h3 {
+        font-family: 'Droid Serif', serif;
+        font-style: italic;
+        font-weight: 700;
+        padding-top: 32px;
+        font-size: 21px;
+        margin-top: 0;
+    }
+
+    span {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 300;
+        font-size: 32px;
+    }
+
+    span.time {
+        font-family: 'Open Sans', sans-serif;
+    }
+
+    span.spacer {
+        font-size: 18px;
+        font-family: 'Open Sans', sans-serif;
+    }
+}
+
+.section, .section-alt {
+    position: relative;
+
+    span {
+        a.anchor {
+            position: absolute;
+            top: -32px;
+            visibility: hidden;
         }
     }
-    .section{
-        color: #000000;
-        background-color: #FFFDF8;
-        h1{
-            color: #5B0A55;
-        }
+
+    min-height: 440px;
+
+    h1 {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 300;
+        font-size: 32px;
+        text-transform: uppercase;
+        border-bottom: 1px dotted #D92C27;
+        text-align: center;
+        width: 700px;
+        margin: auto;
+        padding: 25px 0 18px 0;
+        margin-bottom: 25px;
     }
-    .section-alt{
-        color: #FFFDF8;
-        background-color: #5B0A55;
+
+    .content {
+        margin: 0 auto;
+        width: 700px;
     }
-    .section-spacer{
-        height: 72px;
-        background: url('/images/spacer-wallpaper.png') repeat;
+}
+
+.section {
+    color: #000000;
+    background-color: #FFFDF8;
+
+    h1 {
+        color: #5B0A55;
     }
-#footer{
+}
+
+.section-alt {
+    color: #FFFDF8;
+    background-color: #5B0A55;
+}
+
+.section-spacer {
+    height: 72px;
+    background: url('/images/spacer-wallpaper.png') repeat;
+}
+
+#footer {
     height: 145px;
     background: url('/images/timer_img.jpg') no-repeat fixed center;
     text-align: center;
 }
 
-button{
-    border: 0; 
-    font-family: Gotham-Narrow-Book;
+button {
+    border: 0;
+    font-family: 'Open Sans', sans-serif;
     background-color: #D92C27;
     color: #FFFDF8;
     padding: 7px 15px;
     margin: 5px;
     display: block;
 }
-label{
-    font-family: Gotham-Narrow;
+
+label {
+    font-family: 'Open Sans', sans-serif;
     font-weight: bold;
     font-size: 12px;
     display: block;
     margin: 5px;
 }
-input[type=text]{
-    font-family: Gotham-Narrow-Book;
+
+input[type=text] {
+    font-family: 'Open Sans', sans-serif;
     font-size: 18px;
     width: 100px;
     height: 22px;

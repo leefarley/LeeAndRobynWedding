@@ -1,38 +1,30 @@
-﻿body {
-}
-#wedding{
-
-}
-#rsvp-section{
-    .content{
+﻿#rsvp-section{
         .loading{
-            padding-top: 130px;
+            padding-top: 110px;
+            margin: 0 auto;
+            width: 72px;
+            height: 72px;
+            background: url('/images/loading.gif') center center no-repeat;
         }
-    }
-}
-#registry{
-
-}
-#programme{
-
-}
-#out-of-towners{
-
-}
-#contact{
-
-}
-//http://spiffygif.com/?color=fffdf8&bgColor=5b0a56&radius=12
-#code-form{
-        label{
-            display: block;
+        #code-form{
+            width: 170px;
+            margin: 0 auto;
+            text-align: center;
+            label{
+                font-size: 16px;
+                margin: 7px;
+            }
+            input[type=text]{
+                width: 170px;
+                height: 38px;
+                font-size: 22px;
+                text-align: center;
+                font-weight: 700;
+                text-transform: uppercase;
+            }
+            button{
+                margin: 7px auto;
+                font-size: 20px;
+            }
         }
-        input[type=text]{
-        }
-}
-.loading{
-    margin: 0 auto;
-    width: 72px;
-    height: 72px;
-    background: url('/images/loading.gif') center center no-repeat;
 }
