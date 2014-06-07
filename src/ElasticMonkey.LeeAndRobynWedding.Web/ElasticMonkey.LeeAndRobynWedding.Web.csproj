@@ -102,11 +102,12 @@
     <Content Include="scripts\lib\angular-sanitize.js" />
     <Content Include="scripts\lib\angular-sanitize.min.js" />
     <Content Include="scripts\lib\angular-scenario.js" />
+    <Content Include="scripts\lib\angular-timer.js" />
     <Content Include="scripts\lib\angular-touch.js" />
     <Content Include="scripts\lib\angular-touch.min.js" />
     <Content Include="scripts\lib\angular.js" />
     <Content Include="scripts\lib\angular.min.js" />
-    <Content Include="scripts\lib\angular.timer.js" />
+    <Content Include="scripts\lib\angular-timer.min.js" />
     <Content Include="scripts\lib\errors.json" />
     <Content Include="scripts\lib\angular-touch.min.js.map" />
     <Content Include="scripts\lib\angular-sanitize.min.js.map" />

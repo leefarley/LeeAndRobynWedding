@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" ng-app="app">
+<html xmlns="http://www.w3.org/1999/xhtml" id="ng-app"  ng-app="app">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,7 +11,7 @@
     <link href="css/base.css" rel="stylesheet" />
     <link href="css/sections.css" rel="stylesheet" />
 </head>
-<body ng-controller="homeCtrl">
+<body>
     <div id="header">
     </div>
     <div id="menu">
@@ -27,22 +27,9 @@
         </div>
     </div>
     <div id="timer">
-        <div ng-switch on="areMarried()">
-            <h3 ng-switch-when="false">We'll be married in</h3>
-            <h3 ng-switch-when="true">Married for</h3>
-            <div id="time">
-                    <span id="days"></span>
-                    <span>Days</span>
-                    <span class="spacer">&#3664;</span>
-                    <span id="hours">></span>
-                    <span>Hours</span>
-                    <span class="spacer">&#3664;</span>
-                    <span id="minutes"></span>
-                    <span>Minutes</span>
-                    <span class="spacer">&#3664;</span>
-                    <span id="seconds"></span>
-                    <span>Seconds</span>
-            </div>
+        <div>
+            <h3 married-header></h3>
+            <timer id="time" target-date-string="2015/2/7 15:00:00" ></timer>
         </div>
     </div>
     <div class="section">
@@ -56,7 +43,7 @@
         </div>
     </div>
     <div class="section-spacer"></div>
-    <div id="rsvp-section" class="section-alt">
+    <div id="rsvp-section" class="section-alt" ng-controller="reservationCtrl">
 
         <span>
             <a id="rsvp" class="anchor"></a>
@@ -130,7 +117,6 @@
     <script src="scripts/lib/underscore.js"></script>
     <script src="scripts/lib/angular.js"></script>
     <script src="scripts/lib/angular-resource.js"></script>
-    <script src="scripts/lib/angular.timer.js"></script>
     <script src="scripts/src/app.js"></script>
     <script>
         var menu = document.querySelector('#menu');
@@ -144,17 +130,6 @@
             }
         }
         window.onscroll = scroll;
-
-        var timer = setInterval(updateTimer, 1000);
-        function updateTimer() {
-            var theDate = new Date("Feburary 7, 2015 15:00:00");
-            var currentTime = new Date();
-            var seconds = (theDate.getTime() - currentTime.getTime());
-            document.querySelector('#seconds').innerText = Math.floor((seconds / 1000) % 60);
-            document.querySelector('#minutes').innerText = Math.floor(((seconds / (60000)) % 60));
-            document.querySelector('#hours').innerText = Math.floor(((seconds / (3600000)) % 24));
-            document.querySelector('#days').innerText = Math.floor(((seconds / (3600000)) / 24));
-        };
     </script>
 </body>
 </html>
