@@ -11,113 +11,186 @@
     <link href="css/base.css" rel="stylesheet" />
     <link href="css/sections.css" rel="stylesheet" />
 </head>
-<body>
-    <div id="header">
-    </div>
-    <div id="menu">
-        <div>
-            <ul>
-                <li><a href="#header">Home</a></li>
-                <li><a href="#wedding">Wedding</a></li>
-                <li><a href="#rsvp">RSVP</a></li>
-                <li><a href="#registry">Registry</a></li>
-                <li><a href="#programme">Programme</a></li>
-                <li><a href="#out-of-towners">Out of Towners</a></li>
-            </ul>
-        </div>
-    </div>
-    <div id="timer">
-        <div>
-            <h3 married-header></h3>
-            <timer id="time" target-date-string="2015/2/7 15:00:00" ></timer>
-        </div>
-    </div>
-    <div class="section">
-        <span>
-            <a id="wedding" class="anchor"></a>
-        </span>
-
-        <h1>Wedding</h1>
-        <div class="content">
-            <div>Insert Content Here</div>
-        </div>
-    </div>
-    <div class="section-spacer"></div>
-    <div id="rsvp-section" class="section-alt" ng-controller="reservationCtrl">
-
-        <span>
-            <a id="rsvp" class="anchor"></a>
-        </span>
-
-        <h1>RSVP</h1>
-        <div class="content" style="height: 213px;">
-            <div ng-hide="isWorking">
-                <form id="code-form" ng-hide="isFormLoaded">
-                    <label for="code">Enter Code</label>
-                    <input type="text" id="code" ng-model="rsvpCode" ng-minlength="5" ng-maxlength="5" maxlength="5">
-                    <button ng-click="submitRsvpCode()">Submit</button>
-                </form>
-                <div id="attendees" ng-show="isFormLoaded">
-                    <span class="pane-1">
-                        <label>Attendees</label>
-                        <ul ng-repeat="person in people">
-                            <li>
-                                <label>
-                                    <input type="checkbox" ng-model="person.isAttending" />
-                                    <span>{{ person.firstName }}&nbsp;{{ person.lastName }}</span>
-                                </label>
-                            </li>
-                        </ul>
-                    </span>
-                    <span id="pane-2">
-                        <label>Special Dietry Requirements</label>
-                    </span>
+    <body>
+        <div class="container">
+            <div id="header">
+                <div class="content">
+                    <div>
+                        <h1>You're invited to</h1>
+                        <h3>an evening of sun, laughter & love as we celebrate</h3>
+                        <h1>Our Wedding</h1>
+                    </div>
                 </div>
             </div>
-            <div ng-show="isWorking">
-                <div class="loading"></div>
+            <div id="menu">
+                <div>
+                    <ul>
+                        <li><a href="#header">Home</a></li>
+                        <li><a href="#wedding">Wedding</a></li>
+                        <li><a href="#rsvp">RSVP</a></li>
+                        <li><a href="#gifts">Gifts</a></li>
+                        <li><a href="#out-of-towners">Out of Towners</a></li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="section-spacer"></div>
-    <div class="section">
-        <span>
-            <a id="registry" class="anchor"></a>
-        </span>
-        <h1>Registry</h1>
-        <div class="content">
-            <div>
-                Insert Content Here
+            <div id="timer">
+                <div>
+                    <h3 married-header></h3>
+                    <timer id="time" target-date-string="2015/2/7 15:00:00"></timer>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="section-spacer"></div>
-    <div class="section-alt">
+            <div id="wedding-section" class="section">
+                <span>
+                    <a id="wedding" class="anchor"></a>
+                </span>
 
-        <span>
-            <a id="programme" class="anchor"></a>
-        </span>
-        <h1>Programme</h1>
-        <div class="content">
-            <div>Insert Content Here</div>
+                <h1>Wedding</h1>
+                <div class="content" style="position: relative;">
+                    <ul>
+                        <li>
+                            <span class="icon" id="ceremony-icon"></span>
+                            <h4>Ceremony</h4>
+                            <div>Saturday, 7th Febuary 2015, 3:00pm</div>
+                            <div>Malahide Gardens</div>
+                            <a href="#">Get Directions</a>
+                        </li>
+                        <li>
+                            <span class="icon" id="reception-icon"></span>
+                            <h4>Reception</h4>
+                            <div>Saturday, 7th Febuary 2015, 6:00pm</div>
+                            <div>Elmwood Gardens</div>
+                            <a href="#">Get Directions</a>
+                        </li>
+                    </ul>
+                    <p>
+                        We’re hoping to get a perfect summer’s day so we suggest bringing sunnies, a hat and sunblock. In the event of rain the ceremony will be in the marquee at the Malahide Gardens.
+                    </p>
+                    <p>
+                        We also please ask that cameras and cellphones be turned off during the ceremony. This is so our lovely photographer can get the best shots and you can relax and enjoy the event. We will of course share these photos with you after the ceremony. Feel free to get snap happy at the reception though.
+                    </p>
+                    <img src="images/website_map.png" />
+                </div>
+            </div>
+            <div class="content">
+                <div class="section-spacer">
+                </div>
+            </div>
+            <div id="rsvp-section" class="section" ng-controller="reservationCtrl" style="padding-bottom: 20px;">
+
+                <span>
+                    <a id="rsvp" class="anchor"></a>
+                </span>
+
+                <h1>RSVP</h1>
+                <div class="content" style="min-height: 213px;" ng-switch="isWorking">
+                    <div ng-hide="isWorking">
+                        <div ng-show="isCodeEntryVisible">
+                            <form id="code-form">
+                                <label for="code" class="large">Enter Code</label>
+                                <input type="text" id="code" ng-model="rsvpCode" ng-minlength="5" ng-maxlength="5" maxlength="5">
+                                <button ng-click="submitRsvpCode()">Submit</button>
+                            </form>
+                        </div>
+                        <div ng-show="isFormVisible">
+                            <span class="pane" id="attendees">
+                                <label>Attendees</label>
+                                <ul ng-repeat="person in people">
+                                    <li ng-switch="person.additionalGuest">
+                                        <label ng-switch-when="true" ng-switch="person.isAttending">
+                                            <!--<input type="checkbox" ng-model="person.isAttending" ng-class="{'text-check-box': person.isAttending}" />-->
+                                            <div>Additional guest</div>
+                                            <input type="radio" ng-model="person.isAttending" value="true" />Yes
+                                            <input type="radio" ng-model="person.isAttending" value="false" />No
+                                            <br />
+                                            <input ng-switch-when="true" type="text" maxlength="256" ng-model="person.name" />
+                                        </label>
+                                        <label ng-switch-when="false">
+                                            <div>{{ person.name }}</div>
+                                            <input type="radio" ng-model="person.isAttending" value="true" />Yes
+                                            <input type="radio" ng-model="person.isAttending" value="false" />No
+                                        </label>
+                                    </li>
+                                </ul>
+                            </span>
+                            <span class="pane" id="dietry-requirements">
+                                <label>Special Dietry Requirements</label>
+                                <textarea ng-model="dietryRequirements" maxlength="256"></textarea>
+                            </span>
+                            <div class="clear-fix"></div>
+                            <div id="form-bottom-contols"><button ng-click="submitRsvp()">Submit</button></div>
+                        </div>
+                        <div ng-show="isSuccessRsvpVisible">
+                            <label class="large">RSVP Successful</label>
+                            <div>Thank you for RSVP, We look foward to seeing you there.</div>
+                            <div>
+                                If you would like to change you rsvp <a>click here</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-show="isWorking">
+                        <div class="loading"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-spacer-image">
+                <div id="te-anua-spacer"></div>
+            </div>
+            <div id="gifts-section" class="section">
+                <span>
+                    <a id="gifts" class="anchor"></a>
+                </span>
+                <h1>Gifts</h1>
+                <div class="content">
+                    <div>
+                        <img src="images/website_Tahiti.png" />
+                        <div>
+                            <p>We’re so excited for you to join us on our special day and we understand most of our guests will be travelling from out of town (us included). If you were thinking of a wedding present and wanted a travel friendly option we would be honoured if you donated to our wishing well.</p>
+                            <p>We will put these donations towards our honeymoon in Tahiti, a beautiful wedding album from Megan Graham Photography (include link) and buying our ﬁrst home.</p>
+                            <p>Vouchers to homeware stores would also be greatly appreciated.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-spacer"></div>
+            <div id="out-of-towners" class="section">
+                <span>
+                    <a id="out-of-towners" class="anchor"></a>
+                </span>
+                <h1>Out of Towners</h1>
+                <div class="content">
+                    <ul>
+                        <li>
+                            <span class="icon" id="accomodation-icon"></span>
+                            <h4>Accomodation</h4>
+                            <div>Saturday, 7th Febuary 2015, 3:00pm</div>
+                            <a href="#">Accomodation</a>
+                        </li>
+                        <li>
+                            <span class="icon" id="activities-icon"></span>
+                            <h4>Activities</h4>
+                            <div>Saturday, 7th Febuary 2015, 6:00pm</div>
+                            <div>Elmwood Gardens</div>
+                            <a href="#">Get Directions</a>
+                        </li>
+                        <li>
+                            <span class="icon" id="weather-icon"></span>
+                            <h4>Weather</h4>
+                            <div>Saturday, 7th Febuary 2015, 6:00pm</div>
+                            <div>Elmwood Gardens</div>
+                            <a href="#">Weather</a>
+                        </li>
+                    </ul>
+                    <img src="images/Out-of-towners.png" />
+                </div>
+            </div>
+            <div id="footer"></div>
         </div>
-    </div>
-    <div class="section-spacer"></div>
-    <div class="section">
-        <span>
-            <a id="out-of-towners" class="anchor"></a>
-        </span>
-        <h1>Out of Towners</h1>
-        <div class="content">
-            <div>Insert Content Here</div>
-        </div>
-    </div>
-    <div id="footer"></div>
     <script src="scripts/lib/jquery-2.1.1.js"></script>
     <script src="scripts/lib/underscore.js"></script>
     <script src="scripts/lib/angular.js"></script>
     <script src="scripts/lib/angular-resource.js"></script>
     <script src="scripts/src/app.js"></script>
+    <script src="scripts/src/directives.js"></script>
     <script>
         var menu = document.querySelector('#menu');
         var origOffsetY = menu.offsetTop;

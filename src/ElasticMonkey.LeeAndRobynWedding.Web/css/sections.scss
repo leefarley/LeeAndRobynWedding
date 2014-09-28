@@ -1,21 +1,19 @@
 ﻿#rsvp-section{
+    
+        text-align: center;
         .loading{
             padding-top: 110px;
             margin: 0 auto;
-            width: 72px;
-            height: 72px;
+            width: 92px;
+            height: 92px;
             background: url('/images/loading.gif') center center no-repeat;
         }
         #code-form{
-            width: 170px;
+            width: 180px;
             margin: 0 auto;
             text-align: center;
-            label{
-                font-size: 16px;
-                margin: 7px;
-            }
             input[type=text]{
-                width: 170px;
+                width: 100%;
                 height: 38px;
                 font-size: 22px;
                 text-align: center;
@@ -23,7 +21,7 @@
                 text-transform: uppercase;
             }
             button{
-                margin: 7px auto;
+                margin: 10px 49px;
                 font-size: 20px;
             }
         }
@@ -33,11 +31,150 @@
                 padding-left: 0;
                 li{
                     list-style-type: none;
-                    input[type=checkbox]{
-                        vertical-align: bottom;
-                        margin-bottom: 2px;
+                    label{
+                        font-weight: 400;
+                        input[type=checkbox]{
+                            vertical-align: bottom;
+                            margin-bottom: 2px;
+                        }
+                        input[type=text]{
+                            display: inline;
+                        }
+                        input[type=checkbox].text-check-box{
+                            margin-bottom: 12px;
+                        }
                     }
                 }
             }
         }
+        #dietry-requirements{
+            textarea{
+                min-width: 300px;
+                max-width: 300px;
+                min-height: 100px;
+                max-height: 100px;
+            }
+        }
+        #form-bottom-contols{
+            button{
+                margin: 7px auto; 
+            }
+        }
+}
+
+#wedding-section, #out-of-towners{
+    .content{
+        ul{
+            padding: 0;
+            margin-bottom: 14px;
+            li{
+                margin-top: 30px;
+                list-style: none;
+                position: relative;
+                span{
+                        display: block;
+                        position: absolute;
+                        width: 25px;
+                        height: 25px;
+                    }
+                h4{
+                    font-family: 'Droid Serif', serif;
+                    font-style: italic;
+                    margin: 0 0 5px 0;
+                    padding-left: 27px;
+                    color:#D92C27;
+                    padding-top: 2px;
+                }
+                div{
+                    font-size: 10pt;
+                    padding-left: 27px;
+                }
+                a{
+                    font-size: 10pt;
+                    display: block;
+                    text-decoration: none;
+                    margin: 5px 0 0 27px;
+                    padding: 5px 10px;
+                    background-color:#D92C27;
+                    color: #FFFDF8;
+                    width: 90px;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+#out-of-towners{
+    .content{
+        position: relative;
+        ul{
+            li{
+                span{
+                        &#accomodation-icon{
+                            background: url(../images/website-icons.png) -48px 0 no-repeat;
+                        }
+                        &#activities-icon{
+                            background: url(../images/website-icons.png) -72.5px 0 no-repeat;
+                        }
+                        &#weather-icon{
+                            background: url(../images/website-icons.png) -96px 0 no-repeat;
+                        }
+                }
+            }
+        }
+        img{
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+    }
+}
+
+#wedding-section{
+    .content{
+        min-height: 425px;
+        ul{
+            li{
+                span{
+                        &#ceremony-icon{
+                            background: url(../images/website-icons.png) 0 0 no-repeat;
+                        }
+                        &#reception-icon{
+                            background: url(../images/website-icons.png) -24px 0 no-repeat;
+                        }
+                }
+            }
+        }
+        p{
+            font-size: 10pt;
+            width: 350px;
+        }
+        img{
+             position: absolute;
+             top: 0;
+             right: 0;
+        }
+    }
+}
+
+#gifts-section{
+    min-height: 320px;
+    .content{
+        min-height: 150px;
+        div{
+            position: relative;
+            img{
+                margin-top: 10px;
+                position: absolute;
+            }
+            div{
+                width: 490px;
+                position: absolute;
+                right: 0;
+                top: 0;
+                font-size: 10pt;
+            }
+        }
+    }
 }

@@ -1,35 +1,50 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Diagnostics;
+using System.IdentityModel;
 using System.Web.Http;
+using ElasticMonkey.LeeAndRobynWedding.Web.Services;
+using ElasticMonkey.LeeAndRobynWedding.Web.Models;
+using Newtonsoft.Json;
 
 namespace ElasticMonkey.LeeAndRobynWedding.Web.controllers
 {
     public class RsvpController : ApiController
     {
+        private readonly DataService _dataService;
+        public RsvpController()
+        {
+            _dataService = new DataService();
+        }
+
         // POST api/<controller>/
         [HttpPost]
-        public Invitation Post([FromBody]string code)
+        public Invitation Post([FromBody] CodeRequest request)
         {
-            return new Invitation
-            {
-                People = new []{
-                    new Person
-                    {
-                        FirstName = "John",
-                        LastName = "Doe",
-                        IsAttending = false
-                    }, new Person
-                    {
-                        FirstName = "Jane",
-                        LastName = "Doe",
-                        IsAttending = false
-                    }
-                }
-            };
+            if (string.IsNullOrWhiteSpace(request.Code))
+                throw new BadRequestException();
+
+            var invitation = _dataService.GetInvitation(request.Code);
+
+            if (invitation != null)
+                return invitation;
+
+            return null;
         }
 
         // PUT api/<controller>/5
-        public void Put(int id, [FromBody]string value)
+        [HttpPut]
+        public bool Put([FromBody]Invitation invitation)
         {
+            try
+            {
+                _dataService.UpdateInvitation(invitation);
+            }
+            catch (Exception ex)
+            {
+                Trace.TraceError("Something went wrong updating invitation : {0}, exception : {1}", JsonConvert.SerializeObject(invitation), ex);
+                return false;
+            }
+            return true;
         }
 
         // DELETE api/<controller>/5
@@ -38,15 +53,8 @@ namespace ElasticMonkey.LeeAndRobynWedding.Web.controllers
         }
     }
 
-    public class Invitation
+    public class CodeRequest
     {
-        public IList<Person> People { get; set; }
-    }
-
-    public class Person
-    {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public bool IsAttending { get; set; }
+        public string Code { get; set; }
     }
 }
